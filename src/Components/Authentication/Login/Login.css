@@ -1,0 +1,50 @@
+.bg-orange {
+  background-color: orange;
+  /* background: linear-gradient(45deg, #b7b7b7, #ffb64d); */
+}
+
+/* button color modify */
+.btn-warning {
+  background-color: orange !important;
+}
+
+/* Email Password Input field modify */
+.form-control {
+  border-color: orange;
+  /* box-shadow: 0px 0px 5px 2px orange; */
+}
+
+.form-control:focus {
+  border-color: orange;
+  box-shadow: 0px 0px 5px 2px orange;
+}
+
+.form-check-input {
+  border-color: orange;
+}
+
+/* Checkbox field modify */
+.form-check-input:checked {
+  border-color: orange;
+  background-color: orange;
+}
+.form-check-input:focus {
+  border-color: orange;
+  box-shadow: 0px 0px 1px 1px orange;
+}
+
+/* Main box Card Radius */
+.card {
+  border-radius: 0.5rem;
+  margin-top: 5%;
+}
+
+/* Text Color on White Background */
+.text-color1 {
+  color: orange;
+}
+
+/* Text Color on Orange Background */
+.text-color2 {
+  color: white;
+}

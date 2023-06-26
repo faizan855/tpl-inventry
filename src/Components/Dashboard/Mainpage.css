@@ -1,0 +1,241 @@
+.link-decoration {
+  text-decoration: none !important;
+  color: white !important;
+}
+.link-decoration:hover {
+  color: gray !important;
+}
+
+/* Dashboard styles */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  /* position: relative;
+  overflow: hidden; */
+}
+
+.menu1-btn {
+  cursor: pointer;
+  margin: 0px 20px 0px 20px;
+  padding: 7px;
+  font-size: 20px;
+  border: solid 2px white;
+  border-radius: 50px;
+  background-color: orange;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: orange;
+  /* background: linear-gradient(45deg, #b7b7b7, #ffb64d); */
+  overflow-y: auto;
+  position: fixed;
+  top: 13%;
+  left: 1.5%;
+  bottom: 0;
+  z-index: 1;
+  color: white;
+  /* border-right: solid 2px white; */
+  transition: all linear 0.3s;
+}
+
+.sidebarjs {
+  width: 20%;
+  background-color: orange;
+  /* background: linear-gradient(45deg, #b7b7b7, #ffb64d); */
+  overflow-y: auto;
+  position: fixed;
+  top: 13%;
+  left: -20%;
+  bottom: 0;
+  z-index: 1;
+  color: white;
+
+  transition: all linear 0.3s;
+}
+
+.main-content {
+  margin-left: 20%;
+  transition: all linear 0.3s;
+  padding-left: 20px;
+  margin-top: 70px;
+  width: 80%;
+}
+.main-contentjs {
+  margin-left: 0%;
+  transition: all linear 0.3s;
+  padding-left: 20px;
+  margin-top: 70px;
+  width: 100%;
+}
+
+.sidebar-header {
+  padding: 20px;
+}
+
+.nav-div2 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 50%;
+}
+
+.nav-logo {
+  height: 45px;
+}
+.icon-decoration {
+  margin-left: 2%;
+}
+.user-name {
+  color: white;
+  margin-right: 5%;
+}
+
+.menudiv1-3 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: none;
+  cursor: pointer;
+  padding: 30px;
+}
+.menudiv1-3:hover {
+  background-color: white;
+  color: orange;
+}
+
+.menudiv1-dropdown {
+  padding: 10px 0px 10px 0px;
+}
+
+.menudiv1-dropdown :hover {
+  cursor: pointer;
+}
+
+.menudiv1-maindropdown {
+  padding-left: 59px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* /////////////////////////////////Cards//////////////////////////////// */
+
+.order-card {
+  color: #fff;
+}
+
+.bg-c-blue {
+  background: linear-gradient(45deg, #ff5370, #c3b9bb);
+}
+
+.bg-c-green {
+  background: linear-gradient(45deg, #456d65, #2ed8b6);
+}
+
+.bg-c-yellow {
+  background: linear-gradient(45deg, #b7b7b7, #ffb64d);
+}
+
+.bg-c-pink {
+  background: linear-gradient(45deg, #4b5765, #4099ff);
+}
+
+.bg-c-skyblue {
+  background: linear-gradient(45deg, #288e9d, #8dbec5);
+}
+
+.card {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 10px 18px #888888;
+  /* -webkit-box-shadow: 5px 10px 18px #888888; */
+  /* -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; */
+  /* margin-bottom: 30px; */
+}
+
+.card .card-block {
+  padding: 25px;
+}
+
+.order-card i {
+  font-size: 26px;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.custom-Margin {
+  margin: 0px 10px 10px 10px;
+}
+.custom-Padding {
+  padding: 25px 25px 0px 25px !important;
+}
+/* ///////////////////////////////////////////////////////////////// */
+
+/* .dataTables_wrapper {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 20px !important;
+  background-color: transparent;
+  margin-left: 3px;
+} */
+
+.dataTables_filter input {
+  /* border: 1px solid #aaa;
+  border-radius: 3px; */
+  /* padding: 0px !important; */
+  /* background-color: transparent;
+  margin-left: 3px; */
+  margin-bottom: 10px;
+}
+
+.table-bordered > :not(caption) > * > * {
+  border-width: 0px 0px 1px 1px;
+}
+
+.details-con {
+  border: solid 1px gainsboro;
+  border-radius: 5px;
+  padding: 15px;
+
+}
+.details-div {
+ font-weight: bolder;
+ 
+}
+
+/* ///////////////////////////////////////////////////////////////// */
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    flex: 0 0 100%;
+    width: 100%;
+    /* height: auto;
+    margin-bottom: 20px;
+    top: 0; */
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .nav-div2 {
+    display: none;
+  }
+}
