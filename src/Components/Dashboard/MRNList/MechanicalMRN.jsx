@@ -66,7 +66,7 @@ const MechanicalMRN = () => {
       reason: "",
       poC_NAME: "",
       poC_CONTACT: "",
-      rM_ACTION:"",
+      rM_ACTION: "",
       opS_REMARKS: "",
       technicaL_DEPT_REMARKS: "",
       electricaL_REMARKS: "",
@@ -108,7 +108,7 @@ const MechanicalMRN = () => {
               reason: "",
               poC_NAME: "",
               poC_CONTACT: "",
-              rM_ACTION:"",
+              rM_ACTION: "",
               opS_REMARKS: "",
               technicaL_DEPT_REMARKS: "",
               electricaL_REMARKS: "",
@@ -138,7 +138,7 @@ const MechanicalMRN = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header bg-success bg-gradient">
-              <label
+              <h4
                 style={{
                   color: "white",
                   fontWeight: "bold",
@@ -146,7 +146,7 @@ const MechanicalMRN = () => {
                 }}
               >
                 MRN Approval List From Mechanical
-              </label>
+              </h4>
               <p>
                 <Link
                   to="/dashboard/MRN-List/civil"
@@ -178,7 +178,10 @@ const MechanicalMRN = () => {
                   <tbody>
                     <tr className="text-center align-middle bg-info">
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           From Date
                         </label>
                       </td>
@@ -193,14 +196,17 @@ const MechanicalMRN = () => {
                         />
                       </td>
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start2"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           To Date
                         </label>
                       </td>
                       <td>
                         <input
                           type="date"
-                          id="start"
+                          id="start2"
                           name="ToDate"
                           placeholder="From Date"
                           className="form-control"
@@ -274,7 +280,7 @@ const MechanicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>High</label>
+                            <p>High</p>
                           </td>
                         )}
                         {item.priority === 2 && (
@@ -289,7 +295,7 @@ const MechanicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Normal</label>
+                            <p>Normal</p>
                           </td>
                         )}
                         {item.priority === 3 && (
@@ -303,7 +309,7 @@ const MechanicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         {(item.priority === null ||
@@ -318,7 +324,7 @@ const MechanicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         <td>{item.sitE_ID}</td>
@@ -392,14 +398,14 @@ const MechanicalMRN = () => {
         </div>
       </div>
 
-{/* ///////////////////Modal/////////////////// */}
+      {/* ///////////////////Modal/////////////////// */}
 
-<div className="modal fade" id="myModal" role="dialog">
+      <div className="modal fade" id="myModal" role="dialog">
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             {/* Modal Header */}
             <div className="modal-header">
-            <div
+              <div
                 className="modal-title bg-success bg-gradient text-light rounded d-flex align-items-center"
                 style={{
                   width: "95%",

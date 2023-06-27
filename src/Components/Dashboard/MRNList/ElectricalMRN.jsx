@@ -55,81 +55,81 @@ const ElectricalMRN = () => {
 
   /* ///////////////End of Get MRNList Electrical/////////////// */
 
- /* ///////////////Get MRNDetail/////////////// */
+  /* ///////////////Get MRNDetail/////////////// */
 
- const [selectedItem, setSelectedItem] = useState([0]);
- const [detail, setDetail] = useState([
-   {
-     sitE_ID: "",
-     qtY_REQUIRED: "",
-     materiaL_NAME: "",
-     reason: "",
-     poC_NAME: "",
-     poC_CONTACT: "",
-     rM_ACTION:"",
-     opS_REMARKS: "",
-     technicaL_DEPT_REMARKS: "",
-     electricaL_REMARKS: "",
-   },
- ]);
+  const [selectedItem, setSelectedItem] = useState([0]);
+  const [detail, setDetail] = useState([
+    {
+      sitE_ID: "",
+      qtY_REQUIRED: "",
+      materiaL_NAME: "",
+      reason: "",
+      poC_NAME: "",
+      poC_CONTACT: "",
+      rM_ACTION: "",
+      opS_REMARKS: "",
+      technicaL_DEPT_REMARKS: "",
+      electricaL_REMARKS: "",
+    },
+  ]);
 
- // console.log(detail[0].sitE_ID);
+  // console.log(detail[0].sitE_ID);
 
- const handleDetailClick = (item) => {
-   setSelectedItem(item);
- };
+  const handleDetailClick = (item) => {
+    setSelectedItem(item);
+  };
 
- useEffect(() => {
-   const fetchData = async () => {
-     try {
-       const token = JSON.parse(localStorage.getItem("Token"));
-       const key = token.token;
-       const response = await axios.get(
-         `http://203.170.69.170:8070/api/INVAPI/MRNDetail?Id=${selectedItem}`,
-         {
-           headers: {
-             Authorization: `Bearer ${key}`,
-           },
-         }
-       );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("Token"));
+        const key = token.token;
+        const response = await axios.get(
+          `http://203.170.69.170:8070/api/INVAPI/MRNDetail?Id=${selectedItem}`,
+          {
+            headers: {
+              Authorization: `Bearer ${key}`,
+            },
+          }
+        );
 
-       const MRNDetail = await response.data;
+        const MRNDetail = await response.data;
 
-       if (
-         MRNDetail[0] === undefined ||
-         MRNDetail[0] === null ||
-         MRNDetail[0] === ""
-       ) {
-         setDetail([
-           {
-             sitE_ID: "",
-             qtY_REQUIRED: "",
-             materiaL_NAME: "",
-             reason: "",
-             poC_NAME: "",
-             poC_CONTACT: "",
-             rM_ACTION:"",
-             opS_REMARKS: "",
-             technicaL_DEPT_REMARKS: "",
-             electricaL_REMARKS: "",
-           },
-         ]);
-       } else {
-         setDetail(MRNDetail);
-       }
+        if (
+          MRNDetail[0] === undefined ||
+          MRNDetail[0] === null ||
+          MRNDetail[0] === ""
+        ) {
+          setDetail([
+            {
+              sitE_ID: "",
+              qtY_REQUIRED: "",
+              materiaL_NAME: "",
+              reason: "",
+              poC_NAME: "",
+              poC_CONTACT: "",
+              rM_ACTION: "",
+              opS_REMARKS: "",
+              technicaL_DEPT_REMARKS: "",
+              electricaL_REMARKS: "",
+            },
+          ]);
+        } else {
+          setDetail(MRNDetail);
+        }
 
-       // console.log(MRNDetail,"MRNDetail");
-     } catch (error) {
-       console.error(error);
-     }
-   };
+        // console.log(MRNDetail,"MRNDetail");
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-   if (selectedItem) {
-     fetchData();
-   }
- }, [selectedItem]);
+    if (selectedItem) {
+      fetchData();
+    }
+  }, [selectedItem]);
 
- /* ///////////////End of Get MRNDetail/////////////// */
+  /* ///////////////End of Get MRNDetail/////////////// */
 
   return (
     <>
@@ -138,7 +138,7 @@ const ElectricalMRN = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header bg-success bg-gradient">
-              <label
+              <h4
                 style={{
                   color: "white",
                   fontWeight: "bold",
@@ -146,7 +146,7 @@ const ElectricalMRN = () => {
                 }}
               >
                 MRN Approval List From Electrical
-              </label>
+              </h4>
               <p>
                 <Link
                   to="/dashboard/MRN-List/civil"
@@ -177,7 +177,10 @@ const ElectricalMRN = () => {
                   <tbody>
                     <tr className="text-center align-middle bg-info">
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           From Date
                         </label>
                       </td>
@@ -192,14 +195,17 @@ const ElectricalMRN = () => {
                         />
                       </td>
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start2"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           To Date
                         </label>
                       </td>
                       <td>
                         <input
                           type="date"
-                          id="start"
+                          id="start2"
                           name="ToDate"
                           placeholder="From Date"
                           className="form-control"
@@ -273,7 +279,7 @@ const ElectricalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>High</label>
+                            <p>High</p>
                           </td>
                         )}
                         {item.priority === 2 && (
@@ -288,7 +294,7 @@ const ElectricalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Normal</label>
+                            <p>Normal</p>
                           </td>
                         )}
                         {item.priority === 3 && (
@@ -302,7 +308,7 @@ const ElectricalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         {(item.priority === null ||
@@ -317,7 +323,7 @@ const ElectricalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         <td>{item.sitE_ID}</td>
@@ -391,14 +397,14 @@ const ElectricalMRN = () => {
         </div>
       </div>
 
-    {/* ///////////////////Modal/////////////////// */}
+      {/* ///////////////////Modal/////////////////// */}
 
-    <div className="modal fade" id="myModal" role="dialog">
+      <div className="modal fade" id="myModal" role="dialog">
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             {/* Modal Header */}
             <div className="modal-header">
-            <div
+              <div
                 className="modal-title bg-success bg-gradient text-light rounded d-flex align-items-center"
                 style={{
                   width: "95%",

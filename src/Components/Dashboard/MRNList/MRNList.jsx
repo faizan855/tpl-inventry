@@ -72,7 +72,7 @@ const MRNList = () => {
       reason: "",
       poC_NAME: "",
       poC_CONTACT: "",
-      rM_ACTION:"",
+      rM_ACTION: "",
       opS_REMARKS: "",
       technicaL_DEPT_REMARKS: "",
       electricaL_REMARKS: "",
@@ -114,7 +114,7 @@ const MRNList = () => {
               reason: "",
               poC_NAME: "",
               poC_CONTACT: "",
-              rM_ACTION:"",
+              rM_ACTION: "",
               opS_REMARKS: "",
               technicaL_DEPT_REMARKS: "",
               electricaL_REMARKS: "",
@@ -144,15 +144,16 @@ const MRNList = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header bg-success bg-gradient">
-              <label
+              <h4
                 style={{
                   color: "white",
                   fontWeight: "bold",
                   marginBottom: "10px",
                 }}
+                htmlFor="string"
               >
                 MRN Approval List
-              </label>
+              </h4>
               <p>
                 <Link to="/" className="btn btn-danger btn-sm mx-2">
                   Pending Approvals
@@ -168,7 +169,10 @@ const MRNList = () => {
                   <tbody>
                     <tr className="text-center align-middle bg-info">
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          className="bg-success text-light p-2 rounded"
+                          htmlFor="start"
+                        >
                           From Date
                         </label>
                       </td>
@@ -183,14 +187,17 @@ const MRNList = () => {
                         />
                       </td>
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          className="bg-success text-light p-2 rounded"
+                          htmlFor="start2"
+                        >
                           To Date
                         </label>
                       </td>
                       <td>
                         <input
                           type="date"
-                          id="start"
+                          id="start2"
                           name="ToDate"
                           placeholder="From Date"
                           className="form-control"
@@ -264,7 +271,7 @@ const MRNList = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>High</label>
+                            <p>High</p>
                           </td>
                         )}
                         {item.priority === 2 && (
@@ -279,7 +286,7 @@ const MRNList = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Normal</label>
+                            <p>Normal</p>
                           </td>
                         )}
                         {item.priority === 3 && (
@@ -293,7 +300,7 @@ const MRNList = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         {(item.priority === null ||
@@ -308,7 +315,7 @@ const MRNList = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         <td>{item.sitE_ID}</td>
@@ -389,7 +396,7 @@ const MRNList = () => {
           <div className="modal-content">
             {/* Modal Header */}
             <div className="modal-header">
-            <div
+              <div
                 className="modal-title bg-success bg-gradient text-light rounded d-flex align-items-center"
                 style={{
                   width: "95%",

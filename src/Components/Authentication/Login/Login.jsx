@@ -46,6 +46,7 @@ const Login = () => {
                   <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-4">
                       <input
+                        id="typeEmailX-2"
                         type="text"
                         className="form-control form-control-lg"
                         onChange={(e) => setUsername(e.target.value)}
@@ -62,14 +63,14 @@ const Login = () => {
                     <div className="form-outline mb-4">
                       <input
                         type="password"
-                        id="typePasswordX-2"
+                        id="typePasswordX-3"
                         className="form-control form-control-lg"
                         onChange={(e) => setPasswords(e.target.value)}
                         required
                       />
                       <label
                         className="form-label text-color1"
-                        htmlFor="typePasswordX-2"
+                        htmlFor="typePasswordX-3"
                       >
                         Password
                       </label>

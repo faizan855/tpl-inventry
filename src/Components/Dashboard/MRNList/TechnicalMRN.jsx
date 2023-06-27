@@ -138,7 +138,7 @@ const TechnicalMRN = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header bg-success bg-gradient">
-              <label
+              <h4
                 style={{
                   color: "white",
                   fontWeight: "bold",
@@ -146,7 +146,7 @@ const TechnicalMRN = () => {
                 }}
               >
                 MRN Approval List From Technical
-              </label>
+              </h4>
               <p>
                 <Link
                   to="/dashboard/MRN-List/civil"
@@ -177,7 +177,10 @@ const TechnicalMRN = () => {
                   <tbody>
                     <tr className="text-center align-middle bg-info">
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           From Date
                         </label>
                       </td>
@@ -192,14 +195,17 @@ const TechnicalMRN = () => {
                         />
                       </td>
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          htmlFor="start2"
+                          className="bg-success text-light p-2 rounded"
+                        >
                           To Date
                         </label>
                       </td>
                       <td>
                         <input
                           type="date"
-                          id="start"
+                          id="start2"
                           name="ToDate"
                           placeholder="From Date"
                           className="form-control"
@@ -273,7 +279,7 @@ const TechnicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>High</label>
+                            <p>High</p>
                           </td>
                         )}
                         {item.priority === 2 && (
@@ -288,7 +294,7 @@ const TechnicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Normal</label>
+                            <p>Normal</p>
                           </td>
                         )}
                         {item.priority === 3 && (
@@ -302,7 +308,7 @@ const TechnicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         {(item.priority === null ||
@@ -317,7 +323,7 @@ const TechnicalMRN = () => {
                               padding: "10px",
                             }}
                           >
-                            <label>Low</label>
+                            <p>Low</p>
                           </td>
                         )}
                         <td>{item.sitE_ID}</td>

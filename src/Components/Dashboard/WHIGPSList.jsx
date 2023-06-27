@@ -61,7 +61,7 @@ const WHIGPSList = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header bg-success bg-gradient p-4">
-              <label
+              <h1
                 style={{
                   color: "white",
                   fontWeight: "bold",
@@ -70,7 +70,7 @@ const WHIGPSList = () => {
                 }}
               >
                 Warehouse IGPs
-              </label>
+              </h1>
               {/* <p>
                 <Link to="/" className="btn btn-danger btn-sm mx-2">
                   Pending Approvals
@@ -81,12 +81,16 @@ const WHIGPSList = () => {
               <form
                 action="http://203.170.69.170:8070/api/INVAPI/ExportWHIGPS"
                 method="post"
+                id="exp-date"
               >
                 <table className="table table-striped table-bordered">
                   <tbody>
                     <tr className="text-center align-middle bg-info">
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          className="bg-success text-light p-2 rounded"
+                          htmlFor="start"
+                        >
                           From Date
                         </label>
                       </td>
@@ -101,14 +105,17 @@ const WHIGPSList = () => {
                         />
                       </td>
                       <td>
-                        <label className="bg-success text-light p-2 rounded">
+                        <label
+                          className="bg-success text-light p-2 rounded"
+                          htmlFor="start2"
+                        >
                           To Date
                         </label>
                       </td>
                       <td>
                         <input
                           type="date"
-                          id="start"
+                          id="start2"
                           name="ToDate"
                           placeholder="From Date"
                           className="form-control"
@@ -123,6 +130,7 @@ const WHIGPSList = () => {
                             backgroundColor: "green",
                           }}
                           type="submit"
+                          // name="button"
                         >
                           Export To Excel &nbsp;
                           <i className="fab fa-microsoft" />

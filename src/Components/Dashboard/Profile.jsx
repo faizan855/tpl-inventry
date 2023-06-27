@@ -53,9 +53,12 @@ const Profile = () => {
               <h3>Personal info</h3>
               <form className="form-horizontal">
                 <div className="form-group">
-                  <label className="col-lg-3 control-label">First name:</label>
+                  <label className="col-lg-3 control-label" htmlFor="1">
+                    First name:
+                  </label>
                   <div className="col-lg-8">
                     <input
+                      id="1"
                       className="form-control"
                       type="text"
                       placeholder="example: Faizan"
@@ -63,9 +66,12 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-lg-3 control-label">Last name:</label>
+                  <label className="col-lg-3 control-label" htmlFor="2">
+                    Last name:
+                  </label>
                   <div className="col-lg-8">
                     <input
+                      id="2"
                       className="form-control"
                       type="text"
                       placeholder="example: Ahmad"
@@ -74,9 +80,12 @@ const Profile = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className="col-lg-3 control-label">Email:</label>
+                  <label className="col-lg-3 control-label" htmlFor="3">
+                    Email:
+                  </label>
                   <div className="col-lg-8">
                     <input
+                      id="3"
                       className="form-control"
                       type="text"
                       placeholder="example: faiz...55@gmail.com"
@@ -84,9 +93,12 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-lg-3 control-label">Address:</label>
+                  <label className="col-lg-3 control-label" htmlFor="4">
+                    Address:
+                  </label>
                   <div className="col-lg-8">
                     <input
+                      id="4"
                       className="form-control"
                       type="text"
                       placeholder="House, Street, Town, City, Country"
@@ -94,7 +106,7 @@ const Profile = () => {
                   </div>
                 </div>
                 {/* <div className="form-group">
-                  <label className="col-lg-3 control-label">Time Zone:</label>
+                  <label className="col-lg-3 control-label" htmlFor="time"> Time Zone:</label>
                   <div className="col-lg-8">
                     <div className="ui-select">
                       <select id="user_time_zone" className="form-control">

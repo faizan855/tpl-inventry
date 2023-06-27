@@ -90,6 +90,7 @@ const Changepassword = () => {
                     {error && <div className="text-color3 mb-4 ">{error}</div>}
                     <div className="form-outline mb-4">
                       <input
+                        id="password"
                         type="password"
                         value={passwords}
                         className="form-control form-control-lg form-controlcustum"
@@ -106,6 +107,7 @@ const Changepassword = () => {
 
                     <div className="form-outline mb-4">
                       <input
+                        id="cpassword"
                         type="password"
                         value={confirmPassword}
                         className="form-control form-control-lg form-controlcustum"
@@ -114,7 +116,7 @@ const Changepassword = () => {
                       />
                       <label
                         className="form-label text-color3"
-                        htmlFor="confirmPassword"
+                        htmlFor="cpassword"
                       >
                         Confirm Password
                       </label>
