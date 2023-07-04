@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Mainpage.css";
 import Logo1 from "../../logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = ({ setContentsend }) => {
+  const location = useLocation();
+
   /* ///////////////Navigate to Lofin page/////////////// */
   const navigate = useNavigate();
   const handleClick = () => {
@@ -17,27 +19,48 @@ const Navbar = ({ setContentsend }) => {
 
   /* //Hide Sidbar Conditionally// */
 
+  // Use With HashRouter
   useEffect(() => {
-    const handleNavigation = () => {
-      const currentURL = window.location.pathname;
-      if (
-        currentURL === "/dashboard/MRN-List" ||
-        currentURL === "/dashboard/MRN-List/civil" ||
-        currentURL === "/dashboard/MRN-List/electrical" ||
-        currentURL === "/dashboard/MRN-List/mechanical" ||
-        currentURL === "/dashboard/MRN-List/technical" ||
-        currentURL === "/dashboard/WHIGPS-List"
-      ) {
-        setSidebar("sidebarjs");
-        setContentsend("main-contentjs");
-      } else {
-        setSidebar("sidebar");
-        setContentsend("main-content");
-      }
-    };
+    const currentURL = location.pathname;
+    if (
+      currentURL === "/dashboard/MRN-List" ||
+      currentURL === "/dashboard/MRN-List/civil" ||
+      currentURL === "/dashboard/MRN-List/electrical" ||
+      currentURL === "/dashboard/MRN-List/mechanical" ||
+      currentURL === "/dashboard/MRN-List/technical" ||
+      currentURL === "/dashboard/WHIGPS-List"
+    ) {
+      setSidebar("sidebarjs");
+      setContentsend("main-contentjs");
+    } else {
+      setSidebar("sidebar");
+      setContentsend("main-content");
+    }
+  }, [location.pathname, setContentsend]);
 
-    handleNavigation();
-  }, [setContentsend]);
+  // Use With BrowserRouter
+
+  // useEffect(() => {
+  //   const handleNavigation = () => {
+  //     const currentURL = window.location.pathname;
+  //     if (
+  //       currentURL === "/dashboard/MRN-List" ||
+  //       currentURL === "/dashboard/MRN-List/civil" ||
+  //       currentURL === "/dashboard/MRN-List/electrical" ||
+  //       currentURL === "/dashboard/MRN-List/mechanical" ||
+  //       currentURL === "/dashboard/MRN-List/technical" ||
+  //       currentURL === "/dashboard/WHIGPS-List"
+  //     ) {
+  //       setSidebar("sidebarjs");
+  //       setContentsend("main-contentjs");
+  //     } else {
+  //       setSidebar("sidebar");
+  //       setContentsend("main-content");
+  //     }
+  //   };
+
+  //   handleNavigation();
+  // }, [setContentsend]);
 
   const handleClick2 = () => {
     setSidebar((prevIconClass) =>

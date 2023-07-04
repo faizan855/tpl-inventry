@@ -13,7 +13,12 @@ const Profile = () => {
   return (
     <>
       <Navbar setContentsend={setContent} />
-      <div className={content}>
+      <div
+        className={content}
+        style={{
+          marginTop: "70px",
+        }}
+      >
         <div className="container bootstrap snippets bootdey">
           <h1 className="text-color4">Edit Profile</h1>
           <hr />

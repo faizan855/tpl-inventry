@@ -79,12 +79,15 @@
 
 /* ///////////////////////////////////////////////////////////////// */
 /* Responsive styles */
+
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    background-color: orange;
-    overflow-y: auto;
+    flex: 0 0 100%;
     position: static;
+    width: 100%;
+
+    overflow-y: auto;
+    background-color: orange;
     margin-top: 13%;
     top: 0%;
     left: 1.5%;
@@ -95,7 +98,7 @@
   }
 
   .sidebarjs {
-    width: 100%;
+    width: 0%;
     background-color: orange;
     overflow-y: auto;
     position: fixed;
@@ -111,10 +114,10 @@
   .main-content {
     margin-left: 0;
     margin-top: 0px;
+    width: 100%;
+
     margin-bottom: 50px;
     padding-left: 0px;
-    margin-top: 0px;
-    width: 100%;
     transition: all linear 0.3s;
   }
 
