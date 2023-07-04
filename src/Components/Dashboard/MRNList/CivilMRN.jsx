@@ -150,91 +150,92 @@ const CivilMRN = () => {
               <p>
                 <Link
                   to="/dashboard/MRN-List/electrical"
-                  className="btn btn-danger btn-sm mx-2"
+                  className="btn btn-danger btn-sm mx-1 my-1"
                 >
                   From Electrical
                 </Link>
                 <Link
                   to="/dashboard/MRN-List/mechanical"
-                  className="btn btn-danger btn-sm mx-2"
+                  className="btn btn-danger btn-sm mx-1 my-1"
                 >
                   From Mechanical
                 </Link>
                 <Link
                   to="/dashboard/MRN-List/technical"
-                  className="btn btn-danger btn-sm mx-2"
+                  className="btn btn-danger btn-sm mx-1 my-1"
                 >
                   From Technical
                 </Link>
               </p>
             </div>
             <div className="card-body">
-              <form
-                action="http://203.170.69.170:8070/api/INVAPI/ExportWHIGPS"
-                method="post"
-              >
-                <table className="table table-striped table-bordered">
-                  <tbody>
-                    <tr className="text-center align-middle bg-info">
-                      <td>
-                        <label
-                          htmlFor="start"
-                          className="bg-success text-light p-2 rounded"
-                        >
-                          From Date
-                        </label>
-                      </td>
-                      <td>
-                        <input
-                          type="date"
-                          id="start"
-                          name="FromDate"
-                          placeholder="From Date"
-                          className="form-control"
-                          required
-                        />
-                      </td>
-                      <td>
-                        <label
-                          htmlFor="start2"
-                          className="bg-success text-light p-2 rounded"
-                        >
-                          To Date
-                        </label>
-                      </td>
-                      <td>
-                        <input
-                          type="date"
-                          id="start2"
-                          name="ToDate"
-                          placeholder="From Date"
-                          className="form-control"
-                          required
-                        />
-                      </td>
-                      <td>
-                        <button
-                          className="btn btn-outline-success btn-sm"
-                          style={{
-                            color: "white",
-                            backgroundColor: "green",
-                          }}
-                          type="submit"
-                        >
-                          Export To Excel &nbsp;
-                          <i className="fab fa-microsoft" />
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <input
-                  name="__RequestVerificationToken"
-                  type="hidden"
-                  defaultValue="Need to be set"
-                />
-              </form>
-
+              <div className="table-responsive">
+                <form
+                  action="http://203.170.69.170:8070/api/INVAPI/ExportWHIGPS"
+                  method="post"
+                >
+                  <table className="table table-striped table-bordered">
+                    <tbody>
+                      <tr className="text-center align-middle bg-info">
+                        <td>
+                          <label
+                            htmlFor="start"
+                            className="bg-success text-light p-2 rounded"
+                          >
+                            From Date
+                          </label>
+                        </td>
+                        <td>
+                          <input
+                            type="date"
+                            id="start"
+                            name="FromDate"
+                            placeholder="From Date"
+                            className="form-control"
+                            required
+                          />
+                        </td>
+                        <td>
+                          <label
+                            htmlFor="start2"
+                            className="bg-success text-light p-2 rounded"
+                          >
+                            To Date
+                          </label>
+                        </td>
+                        <td>
+                          <input
+                            type="date"
+                            id="start2"
+                            name="ToDate"
+                            placeholder="From Date"
+                            className="form-control"
+                            required
+                          />
+                        </td>
+                        <td>
+                          <button
+                            className="btn btn-outline-success btn-sm"
+                            style={{
+                              color: "white",
+                              backgroundColor: "green",
+                            }}
+                            type="submit"
+                          >
+                            Export To Excel &nbsp;
+                            <i className="fab fa-microsoft" />
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <input
+                    name="__RequestVerificationToken"
+                    type="hidden"
+                    defaultValue="Need to be set"
+                  />
+                </form>
+              </div>
               <div className="table-responsive">
                 <table
                   ref={tableRef}
