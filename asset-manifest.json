@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tpl-inventry/static/css/main.68560d3e.css",
-    "main.js": "/tpl-inventry/static/js/main.31de268e.js",
+    "main.js": "/tpl-inventry/static/js/main.4a0bca8e.js",
     "index.html": "/tpl-inventry/index.html",
     "main.68560d3e.css.map": "/tpl-inventry/static/css/main.68560d3e.css.map",
-    "main.31de268e.js.map": "/tpl-inventry/static/js/main.31de268e.js.map"
+    "main.4a0bca8e.js.map": "/tpl-inventry/static/js/main.4a0bca8e.js.map"
   },
   "entrypoints": [
     "static/css/main.68560d3e.css",
-    "static/js/main.31de268e.js"
+    "static/js/main.4a0bca8e.js"
   ]
 }
