@@ -4,6 +4,8 @@ import $ from "jquery";
 import "datatables.net";
 import Navbar from "../Navbar";
 import axios from "axios";
+import loadingImage from "../../../loading.gif";
+
 
 const CivilMRN = () => {
   /* ///////////////Hide Unhide Menu/////////////// */
@@ -237,6 +239,17 @@ const CivilMRN = () => {
                 </form>
               </div>
               <div className="table-responsive">
+              {isLoading ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={loadingImage} alt="Loading" />
+                  </div>
+                ) : (
                 <table
                   ref={tableRef}
                   className="table table-bordered row-border dataTable no-footer"
@@ -391,6 +404,7 @@ const CivilMRN = () => {
                     ))}
                   </tbody>
                 </table>
+                )}
                 <br />
               </div>
             </div>

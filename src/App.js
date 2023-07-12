@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import MyProvider from "./MyContext";
 import Login from "./Components/Authentication/Login/Login";
 import Footer from "./Components/Footer";
 import Mainpage from "./Components/Dashboard/Mainpage";
@@ -12,10 +13,15 @@ import CivilMRN from "./Components/Dashboard/MRNList/CivilMRN";
 import ElectricalMRN from "./Components/Dashboard/MRNList/ElectricalMRN";
 import MechanicalMRN from "./Components/Dashboard/MRNList/MechanicalMRN";
 import TechnicalMRN from "./Components/Dashboard/MRNList/TechnicalMRN";
+import UserList from "./Components/Dashboard/UserManagement/UserList";
+import EmpList from "./Components/Dashboard/UserManagement/EmpList";
+import CreateUser from "./Components/Dashboard/UserManagement//CreateUser";
+import ModifyUser from "./Components/Dashboard/UserManagement/ModifyUser";
 
 function App() {
   return (
-    <>
+    <MyProvider>
+      {" "}
       <Routes>
         <Route exact path="/" element={<Loginvalidation Component={Login} />} />
         <Route
@@ -40,10 +46,17 @@ function App() {
         />
 
         <Route path="/dashboard/WHIGPS-List" element={<WHIGPSList />} />
-      </Routes>
 
+        <Route path="/dashboard/Emp-List" element={<EmpList />} />
+
+        <Route path="/dashboard/User-List" element={<UserList />} />
+
+        <Route path="/dashboard/new-user" element={<CreateUser />} />
+
+        <Route path="/dashboard/edit-user" element={<ModifyUser />} />
+      </Routes>
       <Footer />
-    </>
+    </MyProvider>
   );
 }
 

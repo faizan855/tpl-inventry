@@ -1,127 +1,169 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import $ from "jquery";
+import "datatables.net";
+import Navbar from "../Navbar";
+import axios from "axios";
+import loadingImage from "../../../../loading.gif";
 
-const Profile = () => {
+
+const EmpList = () => {
   /* ///////////////Hide Unhide Menu/////////////// */
+
   const [content, setContent] = useState("main-content");
+
+  /* ///////////////Datatables Jquery/////////////// */
+
+  const [isLoading, setIsLoading] = useState(true);
+  const tableRef = useRef(null);
+
+  useEffect(() => {
+    if (!isLoading) {
+      const table = $(tableRef.current).DataTable();
+      return () => {
+        table.destroy();
+      };
+    }
+  }, [isLoading]);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("Token"));
+        const key = token.token;
+        const response = await axios.get(
+          "http://203.170.69.170:8070/api/account/EMPLIST",
+          {
+            headers: {
+              Authorization: `Bearer ${key}`,
+            },
+          }
+        );
+
+        const List = await response.data;
+
+        setData(List);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
       <Navbar setContentsend={setContent} />
-      <div className={content}>
-        <div className="container bootstrap snippets bootdey">
-          <h1 className="text-color4">Edit Profile</h1>
-          <hr />
-          <div className="row">
-            {/*edit left column */}
-            <div className="col-md-3">
-              <div className="text-center">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  className="avatar img-circle img-thumbnail"
-                  alt="avatar"
-                />
-                <h6 className="mt-3 mb-3">Upload a different photo...</h6>
-                <input type="file" className="form-control" />
-              </div>
-              <div className="mt-4 mb-3 text-center">
-                <button
-                  className="btn btn-primary profile-button bg-card2"
-                  type="submit"
-                >
-                  Uplaod
-                </button>
-              </div>
+      <div className={content} style={{ marginTop: "100px" }}>
+        <div className="container-fluid">
+          <div className="card">
+            <div className="card-header bg-success bg-gradient">
+              <h4
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  marginBottom: "10px",
+                }}
+                htmlFor="string"
+              >
+                Employee List
+              </h4>
+              <p>
+                <Link to="/" className="btn btn-danger btn-sm mx-2">
+                  +Add New Employee
+                </Link>
+              </p>
             </div>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table
+                  ref={tableRef}
+                  className="table table-bordered row-border dataTable no-footer"
+                  id="dataTable"
+                  width="100%"
+                  style={{
+                    borderCollapse: "separate",
+                    borderSpacing: "0 10px",
+                  }}
+                >
+                  <thead>
+                    <tr className="mainheader text-center align-middle  bg-secondary text-color2">
+                      <th>EMP ID#</th>
+                      <th>NAME</th>
+                      <th>EMP No# (ERP)</th>
+                      <th>APPOINTED AT</th>
+                      <th>MOBILE</th>
+                      <th>SALARY</th>
+                      <th>ADDRESS</th>
+                      <th>MODIFY</th>
+                      <th>Details</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-center align-middle">
+                    {data.map((item, index) => (
+                      <tr key={index} style={{ color: "black" }}>
+                        <td>{item.emP_ID}</td>
 
-            {/* edit right column */}
-            <div className="col-md-9 personal-info">
-              <div className="alert alert-info alert-dismissable ">
-                Please Fill the Form
+                        <td>{item.emP_NAME}</td>
+                        <td>{item.emP_NO}</td>
+                        <td>{item.saL_GROUP}</td>
+                        <td>{item.mobilE_PHONE}</td>
+                        <td>{item.currenT_PAY}</td>
+                        <td>{item.permA_ADDRESS}</td>
+                        <td>
+                          {" "}
+                          <button
+                            type="button"
+                            className="btn btn-sm btn-block"
+                            style={{
+                              backgroundColor: "orange",
+                              color: "white",
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                          >
+                            Edit
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            className="btn btn-sm btn-block"
+                            style={{
+                              backgroundColor: "green",
+                              color: "white",
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            onClick={() => handleDetailClick(item.userid)}
+                          >
+                            Details
+                          </button>
+                        </td>
+                        <td>
+                          {" "}
+                          <button
+                            type="button"
+                            className="btn btn-sm btn-block"
+                            style={{
+                              backgroundColor: "brown",
+                              color: "white",
+                            }}
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <br />
               </div>
-              <h3>Personal info</h3>
-              <form className="form-horizontal">
-                <div className="form-group">
-                  <label className="col-lg-3 control-label">First name:</label>
-                  <div className="col-lg-8">
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="example: Faizan"
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-lg-3 control-label">Last name:</label>
-                  <div className="col-lg-8">
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="example: Ahmad"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="col-lg-3 control-label">Email:</label>
-                  <div className="col-lg-8">
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="example: faiz...55@gmail.com"
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-lg-3 control-label">Address:</label>
-                  <div className="col-lg-8">
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="House, Street, Town, City, Country"
-                    />
-                  </div>
-                </div>
-                {/* <div className="form-group">
-                  <label className="col-lg-3 control-label">Time Zone:</label>
-                  <div className="col-lg-8">
-                    <div className="ui-select">
-                      <select id="user_time_zone" className="form-control">
-                        <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                        <option value="Alaska">(GMT-09:00) Alaska</option>
-                        <option value="Pacific Time (US & Canada)">
-                          (GMT-08:00) Pacific Time (US &amp; Canada)
-                        </option>
-                        <option value="Arizona">(GMT-07:00) Arizona</option>
-                        <option value="Mountain Time (US & Canada)">
-                          (GMT-07:00) Mountain Time (US &amp; Canada)
-                        </option>
-                        <option
-                          value="Central Time (US & Canada)"
-                          selected="selected"
-                        >
-                          (GMT-06:00) Central Time (US &amp; Canada)
-                        </option>
-                        <option value="Eastern Time (US & Canada)">
-                          (GMT-05:00) Eastern Time (US &amp; Canada)
-                        </option>
-                        <option value="Indiana (East)">
-                          (GMT-05:00) Indiana (East)
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div> */}
-
-                <div className="mt-4 mb-5" style={{ marginLeft: "25%" }}>
-                  <button
-                    className="btn btn-primary profile-button bg-card2"
-                    type="submit"
-                  >
-                    Save Profile
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
@@ -130,4 +172,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default EmpList;

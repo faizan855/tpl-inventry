@@ -28,7 +28,11 @@ const Navbar = ({ setContentsend }) => {
       currentURL === "/dashboard/MRN-List/electrical" ||
       currentURL === "/dashboard/MRN-List/mechanical" ||
       currentURL === "/dashboard/MRN-List/technical" ||
-      currentURL === "/dashboard/WHIGPS-List"
+      currentURL === "/dashboard/WHIGPS-List" ||
+      currentURL === "/dashboard/User-List" ||
+      currentURL === "/dashboard/Emp-List" ||
+      currentURL === "/dashboard/new-user" ||
+      currentURL === "/dashboard/edit-user"
     ) {
       setSidebar("sidebarjs");
       setContentsend("main-contentjs");
@@ -77,6 +81,7 @@ const Navbar = ({ setContentsend }) => {
   const [iconClass3, setIconClass3] = useState("fa-solid fa-caret-right");
   const [iconClass4, setIconClass4] = useState("fa-solid fa-caret-right");
   const [iconClass5, setIconClass5] = useState("fa-solid fa-caret-right");
+  const [iconClass6, setIconClass6] = useState("fa-solid fa-caret-right");
 
   const handleClick3 = (dropdown) => {
     if (dropdown === 1) {
@@ -109,6 +114,13 @@ const Navbar = ({ setContentsend }) => {
     }
     if (dropdown === 5) {
       setIconClass5((prevIconClass) =>
+        prevIconClass === "fa-solid fa-caret-right"
+          ? "fa-solid fa-caret-down"
+          : "fa-solid fa-caret-right"
+      );
+    }
+    if (dropdown === 6) {
+      setIconClass6((prevIconClass) =>
         prevIconClass === "fa-solid fa-caret-right"
           ? "fa-solid fa-caret-down"
           : "fa-solid fa-caret-right"
@@ -454,6 +466,49 @@ const Navbar = ({ setContentsend }) => {
           </div>
         </div>
 
+        <div
+          style={{
+            paddingBottom: "35px",
+            borderBottom: "solid 1px rgb(232, 232, 232)",
+          }}
+        ></div>
+        {/* //////////////////////////////////Third SECTION////////////////////////////////// */}
+        <div
+          className="menudiv1-3 "
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#demo6"
+          onClick={() => handleClick3(6)}
+        >
+          <i style={{ marginRight: "15px" }} className="fa-solid fa-bars" />
+          <p className="mb-0">User Management</p>
+          <i
+            className={iconClass6}
+            style={{
+              position: "absolute",
+              top: "50%",
+              right: "20%",
+              transform: "translateY(-50%)",
+            }}
+          />
+        </div>
+        <div className="menudiv1-maindropdown collapse" id="demo6">
+          <div className="menudiv1-dropdown">
+            <Link className="link-decoration" to="/dashboard/Emp-List">
+              Employee List
+            </Link>
+          </div>
+          <div className="menudiv1-dropdown">
+            <Link className="link-decoration" to="/dashboard/User-List">
+              User List
+            </Link>
+          </div>
+          <div className="menudiv1-dropdown">
+            <Link className="link-decoration" to="/dashboard/new-user">
+              Register New User
+            </Link>
+          </div>
+        </div>
         <div
           style={{
             paddingBottom: "35px",

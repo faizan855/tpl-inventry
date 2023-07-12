@@ -57,7 +57,7 @@ const Content = () => {
           {/* ////////First Row//////// */}
           <div className="row pt-3">
             {/* //////////////////////////////////First Card////////////////////////////////// */}
-            <div className="col-lg-3 col-sm-12">
+            <div className="col-lg-4 col-sm-12">
               <div className="card bg-c-blue order-card">
                 <div className="card-block custom-Padding">
                   <h6 className="m-b-20 text-center">
@@ -81,7 +81,7 @@ const Content = () => {
             </div>
             {/* //////////////////////////////////Second Card////////////////////////////////// */}
 
-            <div className="col-lg-3 col-sm-12">
+            <div className="col-lg-4 col-sm-12">
               <div className="card bg-c-green order-card">
                 <div className="card-block custom-Padding">
                   <h6 className="m-b-20 text-center">
@@ -97,7 +97,6 @@ const Content = () => {
                   type="button"
                   className="btn btn-secondary btn-sm btn-block custom-Margin"
                   to="/dashboard/MRN-List/electrical"
-                  
                 >
                   Details
                 </Link>
@@ -105,7 +104,7 @@ const Content = () => {
             </div>
             {/* //////////////////////////////////Third Card////////////////////////////////// */}
 
-            <div className="col-lg-3 col-sm-12">
+            <div className="col-lg-4 col-sm-12">
               <div className="card bg-c-yellow order-card">
                 <div className="card-block custom-Padding">
                   <h6 className="m-b-20 text-center">
@@ -126,8 +125,11 @@ const Content = () => {
                 </Link>
               </div>
             </div>
-            {/* //////////////////////////////////Forth Card////////////////////////////////// */}
-            <div className="col-lg-3 col-sm-12">
+          </div>
+          {/* ////////Second Row//////// */}
+          <div className="row pt-2">
+            {/* //////////////////////////////////First Card////////////////////////////////// */}
+            <div className="col-lg-6 col-sm-12">
               <div className="card bg-c-pink order-card">
                 <div className="card-block custom-Padding">
                   <h6 className="m-b-20 text-center">
@@ -148,19 +150,18 @@ const Content = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          {/* ////////Second Row//////// */}
-          <div className="row pt-2">
-            {/* //////////////////////////////////First Card////////////////////////////////// */}
-            <div className="col-lg-3 col-sm-12">
+            {/* //////////////////////////////////Second Card////////////////////////////////// */}
+            <div className="col-lg-6 col-sm-12">
               <div className="card bg-c-skyblue order-card">
                 <div className="card-block custom-Padding">
                   <h6 className="m-b-20 text-center">
-                  Site Wise Inward
-                    {/* <br />
-                    <span>From</span>
+                    Site Wise
                     <br />
-                    <span>Civil</span> */}
+                    <span>Inward</span>
+                    <br />
+                    {/* <span>&nbsp;</span> */}
+                    <span>List</span>
+
                   </h6>
                   <p className="text-center">{data.civil}</p>
                 </div>
@@ -175,8 +176,6 @@ const Content = () => {
                 </Link>
               </div>
             </div>
-            {/* //////////////////////////////////Second Card////////////////////////////////// */}
-
             {/* //////////////////////////////////Third Card////////////////////////////////// */}
 
             {/* //////////////////////////////////Forth Card////////////////////////////////// */}

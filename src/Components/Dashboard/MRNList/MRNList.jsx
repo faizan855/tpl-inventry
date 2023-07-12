@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import loadingImage from "../../../loading.gif";
+
 // import { useContext } from "react";
 // import { MRNContext } from "../../MRNContext";
 import $ from "jquery";
@@ -237,6 +239,17 @@ const MRNList = () => {
 
               
               <div className="table-responsive">
+              {isLoading ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={loadingImage} alt="Loading" />
+                  </div>
+                ) : (
                 <table
                   ref={tableRef}
                   className="table table-bordered row-border dataTable no-footer"
@@ -391,6 +404,8 @@ const MRNList = () => {
                     ))}
                   </tbody>
                 </table>
+                )}
+
                 <br />
               </div>
             </div>

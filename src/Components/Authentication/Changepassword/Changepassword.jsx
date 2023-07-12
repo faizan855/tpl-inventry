@@ -57,6 +57,8 @@ const Changepassword = () => {
       console.error(error);
     }
 
+    /* ///////////////Get User ID/////////////// */
+
     /* ///////////////Changepassword by User ID/////////////// */
 
     try {
@@ -80,7 +82,7 @@ const Changepassword = () => {
       <section
         className={content}
         style={{
-          marginTop: "70px"
+          marginTop: "70px",
         }}
       >
         <div className="container">

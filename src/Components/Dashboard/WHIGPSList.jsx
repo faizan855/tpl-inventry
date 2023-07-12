@@ -3,6 +3,7 @@ import $ from "jquery";
 import "datatables.net";
 import Navbar from "./Navbar";
 import axios from "axios";
+import loadingImage from "../../loading.gif";
 
 const WHIGPSList = () => {
   /* ///////////////Hide Unhide Menu/////////////// */
@@ -148,41 +149,54 @@ const WHIGPSList = () => {
                 </form>
               </div>
               <div className="table-responsive">
-                <table
-                  ref={tableRef}
-                  className="table table-bordered row-border dataTable no-footer"
-                  id="dataTable"
-                  width="100%"
-                  // cellSpacing={10}
-                  style={{
-                    marginTop: "30px",
-                    // borderCollapse: "separate",
-                    // borderSpacing: "0 10px",
-                  }}
-                >
-                  <thead>
-                    <tr className="mainheader text-center align-middle bg-secondary text-color2">
-                      <th>Site ID</th>
-                      <th>IGP Data</th>
-                      <th>Item Code</th>
-                      <th>Item Desc</th>
-                      <th>Qty</th>
-                      <th>IGP Remarks</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-center align-middle">
-                    {data.map((item, index) => (
-                      <tr key={index} style={{ color: "black" }}>
-                        <td>{item.sitE_ID}</td>
-                        <td>{item.creatioN_DATE}</td>
-                        <td> {item.iteM_CODE}</td>
-                        <td>{item.iteM_NAME}</td>
-                        <td>{item.qty}</td>
-                        <td> {item.remarks}</td>
+                {isLoading ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={loadingImage} alt="Loading" />
+                  </div>
+                ) : (
+                  <table
+                    ref={tableRef}
+                    className="table table-bordered row-border dataTable no-footer"
+                    id="dataTable"
+                    width="100%"
+                    // cellSpacing={10}
+                    style={{
+                      marginTop: "30px",
+                      // borderCollapse: "separate",
+                      // borderSpacing: "0 10px",
+                    }}
+                  >
+                    <thead>
+                      <tr className="mainheader text-center align-middle bg-secondary text-color2">
+                        <th>Site ID</th>
+                        <th>IGP Data</th>
+                        <th>Item Code</th>
+                        <th>Item Desc</th>
+                        <th>Qty</th>
+                        <th>IGP Remarks</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="text-center align-middle">
+                      {data.map((item, index) => (
+                        <tr key={index} style={{ color: "black" }}>
+                          <td>{item.sitE_ID}</td>
+                          <td>{item.creatioN_DATE}</td>
+                          <td> {item.iteM_CODE}</td>
+                          <td>{item.iteM_NAME}</td>
+                          <td>{item.qty}</td>
+                          <td> {item.remarks}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+
                 <br />
               </div>
             </div>
