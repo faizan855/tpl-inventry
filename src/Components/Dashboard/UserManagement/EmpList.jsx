@@ -254,7 +254,6 @@ const EmpList = () => {
                     <thead>
                       <tr className="mainheader text-center align-middle  bg-secondary text-color2">
                         <th>EMP ID#</th>
-
                         <th>NAME</th>
                         <th>EMP No# (ERP)</th>
                         <th>APPOINTED AT</th>
@@ -270,7 +269,6 @@ const EmpList = () => {
                       {data.map((item, index) => (
                         <tr key={index} style={{ color: "black" }}>
                           <td>{item.emP_ID}</td>
-
                           <td>{item.emP_NAME}</td>
                           <td>{item.emP_NO}</td>
                           <td>{item.saL_GROUP}</td>

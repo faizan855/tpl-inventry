@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Mainpage.css";
 import Logo1 from "../../logo.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = ({ setContentsend }) => {
   const location = useLocation();
@@ -9,7 +10,8 @@ const Navbar = ({ setContentsend }) => {
   /* ///////////////Navigate to Lofin page/////////////// */
   const navigate = useNavigate();
   const handleClick = () => {
-    localStorage.clear("Token");
+    localStorage.removeItem("Token");
+
     navigate("/");
   };
 
@@ -65,6 +67,121 @@ const Navbar = ({ setContentsend }) => {
 
   //   handleNavigation();
   // }, [setContentsend]);
+
+  /* ///////////////Get User ID/////////////// */
+
+  const [uid, setUid] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let token = JSON.parse(localStorage.getItem("Token"));
+      let key = token.token;
+      try {
+        const response = await axios.get(
+          "http://203.170.69.170:8070/api/Account/Claims",
+          {
+            headers: {
+              Authorization: `Bearer ${key}`,
+            },
+          }
+        );
+
+        const claims = response.data;
+        const userId = claims.userid;
+        setUid(userId);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  /* ///////////////END of Get User ID/////////////// */
+
+  /* ///////////////Get User Details by ID/////////////// */
+
+  const [data, setData] = useState({
+    userid: "",
+    username: "",
+    empno: "",
+    passwords: "",
+    useR_ROLE: "",
+    useR_LOCATION: "",
+    useR_RIGHTS: "",
+    fulL_NAME: "",
+    email: "",
+    iS_SUPERADMIN: "",
+    iS_ELECTRICAL: "",
+    iS_TECHNICAL: "",
+    iS_STORE: "",
+    iS_OPMN: "",
+    iS_INVENTORY: "",
+    ccobemail: "",
+    iS_MECHANICAL: "",
+    fuelinG_NOC: "",
+    factorY_ADMIN: "",
+    civiL_USER: "",
+    civiL_HEAD: "",
+    inventorY_HEAD: "",
+    pM_STAFF: "",
+  });
+
+  useEffect(() => {
+    const fetchDetail = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("Token"));
+        const key = token.token;
+
+        const response = await axios.get(
+          `http://203.170.69.170:8070/api/account/UserDetail?Id=${uid}`,
+          {
+            headers: {
+              Authorization: `Bearer ${key}`,
+            },
+          }
+        );
+
+        const userDetails = response.data;
+
+        setData({
+          userid: userDetails.userid,
+          username: userDetails.username,
+          empno: userDetails.empno,
+          passwords: userDetails.passwords,
+          useR_ROLE: userDetails.useR_ROLE,
+          useR_LOCATION: userDetails.useR_LOCATION,
+          useR_RIGHTS: userDetails.useR_RIGHTS,
+          fulL_NAME: userDetails.fulL_NAME,
+          email: userDetails.email,
+          iS_SUPERADMIN: userDetails.iS_SUPERADMIN,
+          iS_ELECTRICAL: userDetails.iS_ELECTRICAL,
+          iS_TECHNICAL: userDetails.iS_TECHNICAL,
+          iS_STORE: userDetails.iS_STORE,
+          iS_OPMN: userDetails.iS_OPMN,
+          iS_INVENTORY: userDetails.iS_INVENTORY,
+          ccobemail: userDetails.ccobemail,
+          iS_MECHANICAL: userDetails.iS_MECHANICAL,
+          fuelinG_NOC: userDetails.fuelinG_NOC,
+          factorY_ADMIN: userDetails.factorY_ADMIN,
+          civiL_USER: userDetails.civiL_USER,
+          civiL_HEAD: userDetails.civiL_HEAD,
+          inventorY_HEAD: userDetails.inventorY_HEAD,
+          pM_STAFF: userDetails.pM_STAFF,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (uid) {
+      fetchDetail();
+    }
+  }, [uid]);
+
+  const storedImage = localStorage.getItem("userImage");
+
+  /* ///////////////END of Get User Details by ID/////////////// */
 
   const handleClick2 = () => {
     setSidebar((prevIconClass) =>
@@ -229,17 +346,46 @@ const Navbar = ({ setContentsend }) => {
                   to="/"
                 />
               </div> */}
-              <div style={{ marginRight: "2%", cursor: "pointer" }}>
+
+              <img
+                src={
+                  storedImage ||
+                  "https://bootdey.com/img/Content/avatar/avatar7.png"
+                }
+                className="rounded-circle"
+                style={{ maxWidth: "7%", marginRight: "2%" }}
+                alt="avatar"
+              />
+
+              <div className="dropdown user-name">
                 <Link
-                  className=" fa-solid fa-user"
-                  style={{ color: "white" }}
-                  to="/"
-                />
-              </div>
-              <div className="user-name mb-0">
-                <p className="mb-0" style={{ fontFamily: "cursive" }}>
-                  Faizan Ahmad
-                </p>
+                  className="dropdown-toggle"
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    fontFamily: "cursive",
+                  }}
+                  data-bs-toggle="dropdown"
+                >
+                  {data.fulL_NAME}
+                </Link>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/dashboard/profile">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/dashboard/change-password">
+                      Change Password
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/">
+                      Settings
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
 
