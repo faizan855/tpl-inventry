@@ -376,7 +376,10 @@ const Navbar = ({ setContentsend }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/dashboard/change-password">
+                    <Link
+                      className="dropdown-item"
+                      to="/dashboard/change-password"
+                    >
                       Change Password
                     </Link>
                   </li>
@@ -411,7 +414,7 @@ const Navbar = ({ setContentsend }) => {
           data-bs-target="#demo1"
           onClick={() => handleClick3(1)}
         >
-          <i style={{ marginRight: "15px" }} className="fa-solid fa-bars" />
+          <i style={{ marginRight: "15px" }} className="fa fa-dashboard" />
           <p className="mb-0">Dashboard</p>
           <i
             className={iconClass1}
@@ -448,7 +451,10 @@ const Navbar = ({ setContentsend }) => {
           data-bs-target="#demo2"
           onClick={() => handleClick3(2)}
         >
-          <i style={{ marginRight: "15px" }} className="fa-solid fa-globe" />
+          <i
+            style={{ marginRight: "15px" }}
+            className="fa-solid fa-users-gear"
+          />
           <p className="mb-0">Facilitations </p>
           <i
             className={iconClass2}
@@ -508,7 +514,10 @@ const Navbar = ({ setContentsend }) => {
           data-bs-target="#demo3"
           onClick={() => handleClick3(3)}
         >
-          <i style={{ marginRight: "15px" }} className="fa-solid fa-bars" />
+          <i
+            style={{ marginRight: "15px" }}
+            className="fa-solid fa-clipboard-list"
+          />
           <p className="mb-0">Demands</p>
           <i
             className={iconClass3}
@@ -545,7 +554,10 @@ const Navbar = ({ setContentsend }) => {
           data-bs-target="#demo4"
           onClick={() => handleClick3(4)}
         >
-          <i style={{ marginRight: "15px" }} className="fa-solid fa-bars" />
+          <i
+            style={{ marginRight: "15px" }}
+            className="fa-solid fa-rectangle-list"
+          />
           <p className="mb-0">MRN's</p>
           <i
             className={iconClass4}
@@ -626,7 +638,7 @@ const Navbar = ({ setContentsend }) => {
           data-bs-target="#demo6"
           onClick={() => handleClick3(6)}
         >
-          <i style={{ marginRight: "15px" }} className="fa-solid fa-bars" />
+          <i style={{ marginRight: "15px" }} className="fa fa-user-circle" />
           <p className="mb-0">User Management</p>
           <i
             className={iconClass6}
