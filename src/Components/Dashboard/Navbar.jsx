@@ -651,11 +651,11 @@ const Navbar = ({ setContentsend }) => {
           />
         </div>
         <div className="menudiv1-maindropdown collapse" id="demo6">
-          <div className="menudiv1-dropdown">
+          {/* <div className="menudiv1-dropdown">
             <Link className="link-decoration" to="/dashboard/Emp-List">
               Employee List
             </Link>
-          </div>
+          </div> */}
           <div className="menudiv1-dropdown">
             <Link className="link-decoration" to="/dashboard/User-List">
               User List
